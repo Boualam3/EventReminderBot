@@ -1,0 +1,47 @@
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+tmp/
+temp/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Optional: PM2 logs if you're using it to run the bot
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# IDE-specific
+.vscode/
+.idea/
+
+# Coverage reports
+coverage/
+
+# Optional: if using TypeScript
+*.tsbuildinfo
+
+# Optional: if you're packaging for Docker
+docker-compose.override.yml
+
+# Optional: if you're using jest
+jest.config.js
+coverage/
