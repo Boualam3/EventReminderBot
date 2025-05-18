@@ -3,7 +3,7 @@
 ### Database Setup (Sequelize + SQLite)
 - [ ] Install Sequelize and SQLite3
 - [ ] Create `User` model (`telegram_id`, `first_name`, `last_name`, `username`, `timezone`)
-- [ ] Create `Event` model (`title`, `start_time`, `end_time`, `is_recurring`, `userId`, etc.)
+- [ ] Create `Event` model (`title`, `start_time`, `end_time`, `is_recurring`, `userId`, `frequency enum(daily, weekly, monthly)`)
 - [ ] Define associations: User hasMany Events
 
 ### Bot Commands
@@ -29,7 +29,7 @@
 ### Optional Features (After MVP)
 - [ ] Inline buttons for quick actions
 - [ ] Natural language date parsing (`chrono-node`)
-- [ ] Detect timezone from user location
+- [ ] Detect timezone from user location(for mobile only)
 - [ ] Backup/export events
 
 

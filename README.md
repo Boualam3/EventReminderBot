@@ -47,7 +47,7 @@ TELEGRAM_BOT_TOKEN=your-telegram-bot-token-here
 ### 4. Run the bot
 
 ```bash
-node src/index.js
+node src/
 ```
 
 You should see:
@@ -58,22 +58,29 @@ Bot is runnning ....
 
 ## 🔮 Planned Features
 
-- `/createevent` command to add new events
-- Event list management commands (`/events`, `/deleteevent`)
+- `/nevent` command to add new events
+- Event list management commands `/myevents`, `/events`
 - Scheduled reminders sent before events start
 - Recurring event support (daily, weekly, monthly)
 - User-specific and group-specific event handling
 
-## 📁 Project Structure
+📁 Project Structure
+This project follows a modular and beginner-friendly layout for easy collaboration and growth.
 
 ```
-.
 src/
-| └── index.js         # Main bot code & handlers
-├── .env             # Environment variables (ignored by git)
-├── package.json     # Node dependencies and scripts
-├── .gitignore       # Ignored files (node_modules, .env, logs)
-└── README.md        # This file
+├── index.js               # Main entry point — initializes DB and bot
+├── bot/
+│   ├── bot.js             # Configures the Telegram bot (token, polling, commands setup)
+│   └── commands/
+│       └── start.js       # Example command handler for /start 
+├── db/
+│   ├── index.js           # Initializes Sequelize and connects to the database
+│   └── models/
+│       ├── User.js        # Defines User schema (Telegram user info)
+│       └── Event.js       # Defines Event schema (event data, reminders, etc.)
+├── utils/
+│   └── time.js            # (Example) Utility functions like timezone conversion, date formatting
 ```
 
 ## 🤝 Contributing

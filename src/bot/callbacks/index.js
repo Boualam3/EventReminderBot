@@ -1,0 +1,1 @@
+// Registers all callback handlers
