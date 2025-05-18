@@ -1,24 +1,14 @@
-const TelegramBot = require('node-telegram-bot-api')
-const dotenv = require("dotenv");
-dotenv.config();
+const { initDB } = require('./db');
+const bot = require("./bot/bot");
 
+initDB().then(()=>{
 
-const token = process.env.TELEGRAM_BOT_TOKEN;
-
-
-
-const bot = new TelegramBot(token, {polling:true})
-
-bot.on('message', (msg)=>{
-    const chat_id = msg.chat.id
-    bot.sendMessage(chat_id, "Yoo  Im your freindly telegram bot. how i can help you!")
-})
-
-bot.onText(/\/time/, (msg)=> {
-    const chat_id = msg.chat.id
-    const currentTime = new Date().toLocaleDateString()
-
-    bot.sendMessage(chat_id, `Current Time : ${currentTime}`)
-})
-
-console.log("Bot is runnning ....");
+    // Register commands
+    require("./bot/commands/help")(bot)
+    // require("./commands/start")(bot);
+    // require("./commands/settz")(bot);
+    // require("./commands/nevent")(bot);
+    // require("./commands/events")(bot);
+    // require("./commands/myevents")(bot);
+    // require("./commands/devent")(bot);
+}).catch()
