@@ -3,13 +3,14 @@
 A Telegram bot built with [node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api) that helps you create, manage, and get reminders for events directly inside Telegram chats.
 
 ## 🚀 Project Overview
+    Inspired by Discord’s event features, this bot brings event reminders to Telegram with a focus on usability and timezone accuracy.
+    It supports:
+    - Creating one-time or recurring events
+    - Setting timezone per user
+    - Sending reminders before events
+    - Managing personal and group event lists
 
-This bot is inspired by Discord’s event reminders but designed for Telegram. Currently, it replies to simple messages and can show the current date, but the plan is to evolve it into a fully-featured event reminder system, including:
-
-- Creating events with date, time, and description
-- Sending scheduled reminders for upcoming events
-- Managing event lists in group chats and private messages
-- Supporting recurring events and event notifications
+This bot is still a **work in progress**, and contributions are welcome!
 
 ## 🛠 Current Features
 
@@ -20,6 +21,26 @@ This bot is inspired by Discord’s event reminders but designed for Telegram. C
 
 - Node.js >= 14
 - Telegram bot token from [@BotFather](https://t.me/botfather)
+
+## 📁 Project Structure
+This project follows a modular and beginner-friendly layout for easy collaboration and growth.
+
+
+```
+src/
+├── index.js               # Main entry — initializes DB and bot
+├── bot/
+│   ├── bot.js             # Bot setup (token, polling, command handlers)
+│   ├── commands/          # Command handlers: /start, /nevent, /myevents, etc.
+│   └── callbacks/         # Callback queries (e.g., timezone selection)
+├── db/
+│   ├── index.js           # Sequelize init and DB connection
+│   └── models/            # Sequelize models: User, Event
+├── utils/
+│   └── reminders/
+│       └── scheduler.js   # Reminder scheduler logic
+```
+
 
 ## 💻 Getting Started
 
@@ -56,36 +77,44 @@ You should see:
 Bot is runnning ....
 ```
 
-## 🔮 Planned Features
+## ⏰ Reminder System
 
-- `/nevent` command to add new events
-- Event list management commands `/myevents`, `/events`
-- Scheduled reminders sent before events start
-- Recurring event support (daily, weekly, monthly)
-- User-specific and group-specific event handling
+- Uses `node-schedule` to check upcoming events
+- Sends reminders before the event starts
+- Supports one-time and recurring events
+- Respects user timezones
 
-📁 Project Structure
-This project follows a modular and beginner-friendly layout for easy collaboration and growth.
+## 🌍 Timezone Handling
 
-```
-src/
-├── index.js               # Main entry point — initializes DB and bot
-├── bot/
-│   ├── bot.js             # Configures the Telegram bot (token, polling, commands setup)
-│   └── commands/
-│       └── start.js       # Example command handler for /start 
-├── db/
-│   ├── index.js           # Initializes Sequelize and connects to the database
-│   └── models/
-│       ├── User.js        # Defines User schema (Telegram user info)
-│       └── Event.js       # Defines Event schema (event data, reminders, etc.)
-├── utils/
-│   └── time.js            # (Example) Utility functions like timezone conversion, date formatting
-```
+- User sets timezone via `/settz` (keyboard selection)
+- Events are stored in UTC
+- Displayed event times are converted to each user’s timezone
+
+## 📋 Roadmap & TODO
+
+For a detailed list of tasks and progress, check [`TODO.md`](./TODO.md)
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to open issues or submit pull requests for features or bug fixes.
+## 🤝 Contributing
+
+We welcome contributors! If you're joining the project:
+
+1. Clone the repo and follow the setup above
+2. Create a new feature branch from `dev`:
+   ```bash
+   git checkout dev
+   git checkout -b feature/your-feature-name
+   ```
+3. Work on your changes and commit them to the feature branch
+4. Push the branch and open a Pull Request **into `dev`**:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. After review and merge into `dev`, the `main` branch will only receive
+
+> Please do **not** open PRs directly to `main`. All work should follow the flow:  
+> `feature/*` → `dev` → `main`
 
 ## 🧼 License
 
@@ -93,5 +122,5 @@ MIT License
 
 ---
 
-*This is a work in progress — stay tuned for more updates as the bot grows!*
-```
+*_This bot is in active development — feel free to fork, test, and improve it!_*
+
