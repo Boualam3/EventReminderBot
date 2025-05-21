@@ -1,10 +1,10 @@
 ## 📋 TODO (In Progress)
 
 ### Database Setup (Sequelize + SQLite)
-- [ ] Install Sequelize and SQLite3
-- [ ] Create `User` model (`telegram_id`, `first_name`, `last_name`, `username`, `timezone`)
-- [ ] Create `Event` model (`title`, `start_time`, `end_time`, `is_recurring`, `userId`, `frequency enum(daily, weekly, monthly)`)
-- [ ] Define associations: User hasMany Events
+- [x] Install Sequelize and SQLite3
+- [x] Create `User` model (`telegram_id`, `first_name`, `last_name`, `username`, `timezone`)
+- [x] Create `Event` model (`title`, `start_time`, `end_time`, `is_recurring`, `userId`, `frequency enum(daily, weekly, monthly)`)
+- [x] Define associations: User hasMany Events
 
 ### Bot Commands
 - [ ] `/start` => register or update user in DB
