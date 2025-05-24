@@ -1,40 +1,41 @@
-const eventBus = require('../eventBus')
+const eventBus = require("../eventBus");
 
 const {
-    handleUserCreate,
-    handleUserUpdate,
-    handleEventCreate,
-    handleEventUpdate,
-    handleEventDelete,
-    handleEventReminderSet,
-    handleEventReminderSent,
-    handleEventRecurringSet,
-    handleSubscriptionCreate,
-    handleSubscriptionCancel,
-    handleSchedulerCheck,
-    handleSchedulerReminderTrigger,
-} = require('../handlers')
-  
-// User-related events
-eventBus.on('user:create', handleUserCreate)
-eventBus.on('user:update', handleUserUpdate)
+  handleUserCreate,
+  handleUserUpdate,
+  handleEventCreate,
+  handleEventUpdate,
+  handleEventDelete,
+  handleEventReminderSet,
+  handleEventReminderSent,
+  handleEventRecurringSet,
+  handleSubscriptionCreate,
+  handleSubscriptionCancel,
+  handleSchedulerCheck,
+  handleSchedulerReminderTrigger,
+} = require("../handlers");
 
-// Event-related events
-eventBus.on('event:create', handleEventCreate)
-eventBus.on('event:update', handleEventUpdate)
-eventBus.on('event:delete', handleEventDelete)
-eventBus.on('event:reminder:set', handleEventReminderSet)
-eventBus.on('event:reminder:sent', handleEventReminderSent)
-eventBus.on('event:recurring:set', handleEventRecurringSet)
+module.exports = () => {
+  // User-related events
+  eventBus.on("user:create", handleUserCreate);
+  eventBus.on("user:update", handleUserUpdate);
 
-// Subscription-related events
-eventBus.on('subscription:create', handleSubscriptionCreate)
-eventBus.on('subscription:cancel', handleSubscriptionCancel)
+  // Event-related events
+  eventBus.on("event:create", handleEventCreate);
+  eventBus.on("event:update", handleEventUpdate);
+  eventBus.on("event:delete", handleEventDelete);
+  eventBus.on("event:reminder:set", handleEventReminderSet);
+  eventBus.on("event:reminder:sent", handleEventReminderSent);
+  eventBus.on("event:recurring:set", handleEventRecurringSet);
 
-// Scheduler events
-eventBus.on('scheduler:check', handleSchedulerCheck)
-eventBus.on('scheduler:reminder:trigger', handleSchedulerReminderTrigger)
+  // Subscription-related events
+  eventBus.on("subscription:create", handleSubscriptionCreate);
+  eventBus.on("subscription:cancel", handleSubscriptionCancel);
 
+  // Scheduler events
+  eventBus.on("scheduler:check", handleSchedulerCheck);
+  eventBus.on("scheduler:reminder:trigger", handleSchedulerReminderTrigger);
+};
 
 // ===== Error Events =====
 // eventBus.on('error', (err) => {

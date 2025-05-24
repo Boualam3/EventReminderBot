@@ -1,7 +1,6 @@
-const {EventEmitter} = require('events')
-
+const { EventEmitter } = require("events");
 
 // base class
 class EventBus extends EventEmitter {}
 
-module.exports = new EventBus()
+module.exports = new EventBus();

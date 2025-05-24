@@ -1,6 +1,6 @@
 module.exports = {
-    ...require("./eventHandlers/user"),
-    ...require("./eventHandlers/event"),
-    ...require("./eventHandlers/subscription"),
-    ...require("./eventHandlers/scheduler"),
-}
+  ...require("./user"),
+  ...require("./event"),
+  ...require("./subscription"),
+  ...require("./scheduler"),
+};
