@@ -1,10 +1,12 @@
 const { moveState } = require("../../index.js");
 
+const regexCommands = /\/[a-zA-Z]/gm;
 module.exports = (bot) => {
-  bot.onText(/\/start/, (msg) => {
+  bot.on("message", (msg) => {
     const chatId = msg.chat.id;
-    let gen = moveState("Start");
-    console.log(gen.next().value);
+    const userText = msg.text;
+    if (userText.match(regexCommands)) return;
+
     bot.sendMessage(chatId, gen.next().value);
   });
 };

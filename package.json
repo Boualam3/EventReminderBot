@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon node ./src/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +17,6 @@
   "devDependencies": {
     "dotenv": "^16.5.0",
     "nodemon": "^3.1.10"
-  }
+  },
+  "type": "commonjs"
 }
